@@ -1,0 +1,14 @@
+services:
+  cloudflared:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    cap_add:
+     - NET_BIND_SERVICE
+    deploy:
+      mode: replicated
+      replicas: ${REPLICA_COUNT}
+      restart_policy:
+        condition: unless-stopped
