@@ -9,8 +9,29 @@ Usage: `docker run --rm -it ghcr.io/jauderho/cloudflared:latest`
 ```
 services:
   cloudflared:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: cloudflared
-    image: jauderho/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token aBcDeF0123456789...
+    cap_add:
+     - NET_BIND_SERVICE
+    deploy:
+      mode: replicated
+      replicas: 2
+      restart_policy:
+        condition: unless-stopped
+```
+
+```
+services:
+  cloudflared:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloudflared
+    restart: unless-stopped
     ports:
       - "5454:5454/tcp"
       - "5454:5454/udp"
