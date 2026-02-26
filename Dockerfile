@@ -39,12 +39,12 @@ RUN ./cloudflared -v
 #FROM scratch
 FROM ghcr.io/jauderho/alpine:3.23.3@sha256:350bc73d1a938d40605f8ecd1009be511e61804d8452af018d63b8eac931fe33
 
-LABEL org.opencontainers.image.authors="Jauder Ho <jauderho@users.noreply.github.com>"
-LABEL org.opencontainers.image.url="https://github.com/jauderho/dockerfiles"
-LABEL org.opencontainers.image.documentation="https://github.com/jauderho/dockerfiles"
-LABEL org.opencontainers.image.source="https://github.com/jauderho/dockerfiles"
-LABEL org.opencontainers.image.title="jauderho/cloudflared"
-LABEL org.opencontainers.image.description="Command line client for Cloudflare's Argo Tunnel"
+# LABEL org.opencontainers.image.authors="Jauder Ho <jauderho@users.noreply.github.com>"
+# LABEL org.opencontainers.image.url="https://github.com/jauderho/dockerfiles"
+# LABEL org.opencontainers.image.documentation="https://github.com/jauderho/dockerfiles"
+# LABEL org.opencontainers.image.source="https://github.com/jauderho/dockerfiles"
+# LABEL org.opencontainers.image.title="jauderho/cloudflared"
+# LABEL org.opencontainers.image.description="Command line client for Cloudflare's Argo Tunnel"
 
 RUN apk update \
 	&& apk upgrade -a
